@@ -1,0 +1,11 @@
+{
+  "platformApi": {
+    "endpoint": "PELTARION_DEPLOYMENT_URI",
+    "token": "PELTARION_DEPLOYMENT_TOKEN"
+  },
+  "giphyApi": {
+    "endpoint": "http://api.giphy.com",
+    "apiKey": "GIPHY_API_KEY"
+  },
+  "staticFilesPath": "./www"
+}
