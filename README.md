@@ -83,7 +83,7 @@ Go search the internet for your favourite pop or rock lyric. Copy paste in the w
 
 We have provided a [dockerfile](Dockerfile) that is useful if you prefer to run the application without installing node or to host it in the cloud using services like e.g., [Google Cloud Run](https://cloud.google.com/run/) or similar.
 
-In the packacge.json there are a few commands that will help you with various Docker tasks.
+In the package.json there are a few commands that will help you with various Docker tasks.
 
 ### Services
 
