@@ -1,0 +1,448 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Josefin Slab', serif;
+    font-size: 24px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+body[data-state=result-pop] .main {
+    background-image: url("images/pop-background.png");
+    background-size: 84px 86px;
+}
+
+body[data-state=result-rock] .main {
+    background-image: url("images/rock-background.png");
+    background-size: 60px 61px;
+}
+
+body[data-state=input] .main {
+    background-image: url("images/input-background.png");
+    background-size: 76px 66px;
+}
+
+.content-area {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    margin-top: 24px;
+    border: none;
+    border-radius: 12px;
+}
+
+section.result,
+section.input {
+    position: relative;
+    display: inline-block;
+    max-width: 843px;
+    width: 100%;
+    margin-top: 80px;
+    padding-bottom: 80px;
+}
+
+*[data-hidden] {
+    display: none !important;
+}
+
+/* input States */
+
+body[data-state=input] section.input {
+    display: inline-block;
+}
+
+body[data-state=input] section.result {
+    display: none;
+}
+
+.main {
+    min-height:100%;
+    position:relative;
+    top: 0;
+    z-index: 1;
+    background-position: 0 38px;
+}
+
+section {
+    padding: 0 20px;
+}
+
+/* Sharing */
+.instagram-logo,
+.facebook-logo,
+.linkedin-logo,
+.twitter-logo {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    text-indent: -9999px;
+    background-size: 20px 20px;
+}
+.instagram-logo {
+    background: transparent url("/images/instagram_icon.svg") no-repeat;
+}
+.facebook-logo {
+    background: transparent url("/images/facebook_icon.svg") no-repeat center;
+}
+.linkedin-logo {
+    background: transparent url("/images/linkedin_icon.svg") no-repeat center;
+}
+.twitter-logo {
+    background: transparent url("/images/twitter_icon.svg") no-repeat center;
+}
+
+/* Application states */
+
+body[data-state=result-rock] section.input,
+body[data-state=result-pop] section.input {
+    display: none;
+}
+
+body[data-state=result-rock] section.result,
+body[data-state=result-pop] section.result {
+    display: inline-block;
+}
+
+
+/* input section */
+
+form {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+label {
+    font-family: 'Josefin Slab', serif;
+    display: block;
+    text-align: center;
+    font-size: 48px;
+    padding: 0;
+    margin: 0 0 0.5em;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    height: 243px;
+    font-family: 'Josefin Slab', serif;
+    font-size: 20px;
+    color: #666;
+    border: 1px solid #000;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.input-button {
+    display: inline-block;
+    margin-top: 24px;
+    position: relative;
+    border: 1px solid #000;
+    border-radius: 12px;
+    height: 53px;
+    width: 488px;
+    padding-top: 2px;
+    max-width: 100%;
+}
+
+.input-button .input-pop {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Monoton', sans-serif;
+    font-size: 29px;
+    margin-right: 0.3em;
+    margin-top: 7px;
+}
+
+.input-button .input-rock {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'New Rocker', serif;
+    font-size: 27px;
+    margin-top: 7px;
+    text-transform: uppercase;
+}
+
+/* loader */
+
+.preloader {
+    position: relative;
+    top: 3px;
+    left: 3px;
+    display: none;
+    width: 26px;
+    height: 26px;
+    padding: 2px;
+    opacity: 0.333;
+    background: url("images/loader-outline.svg") no-repeat center;
+}
+
+.preloader .inner {
+    width: 100%;
+    height: 100%;
+    background: url("images/loader-inner.svg") no-repeat center;
+    animation:spin 4s linear infinite;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+form[data-state=loading],
+form[data-state=loading] .input-button {
+    color: #bbb;
+    border-color: #aaa;
+}
+
+form[data-state=loading] .input-button .preloader {
+    display: inline-block;
+}
+
+.error-message {
+    display: none;
+    color: darkred;
+    margin-top: 0.5em;
+}
+
+form[data-state=service-error] .error-message.service,
+form[data-state=validation-error] .error-message.validation {
+    display: block;
+}
+
+input[type=submit] {
+    -webkit-appearance: none;
+    display: inline-block;
+    color: transparent;
+    border: 0;
+    height: 1em;
+    padding-bottom: 1.5em;
+    background: transparent;
+}
+
+input[type=submit]:focus {
+    outline: none;
+}
+
+.input-button input[type=submit] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 50px;
+    width: 100%;
+}
+
+section.input .supplemental-area {
+    margin-top: 22px;
+    padding: 25px 25px 25px 75px;
+    width: 100%;
+    border-radius: 12px;
+    background: #F4FBFE url("images/icon-warning.svg") no-repeat 25px center;
+    background-size: 30px 30px;
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+    line-height: 20px;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+section.input .supplemental-area a {
+    color: black;
+}
+
+/* result section */
+
+section.result img {
+    display: inline-block;
+    width: 100%;
+    max-width: 480px;
+}
+
+section.result .attribution {
+    font: 100 12px Helvetica, Arial, sans-serif;
+    font-style: oblique;
+}
+
+section .lyrics-text {
+    display: block;
+    font: 300 16px 'Courier', monospace;
+    color: #666;
+    font-style: oblique;
+    margin: 1em 0;
+}
+
+section.result[data-state=pop] h2.rock {
+    display: none;
+}
+
+section.result[data-state=rock] h2.pop {
+    display: none;
+}
+
+h2.pop {
+    font-family: 'Monoton', sans-serif;
+    font-size: 40px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+}
+
+section.result[data-state=pop] .tutorial-link,
+section.result[data-state=pop] #restart-button {
+    display: inline-block;
+    border-radius: 12px;
+    font-family: 'Monoton', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 53px;
+    text-transform: lowercase;
+    text-decoration: none;
+    max-width: 100%;
+    height: 53px;
+}
+
+section.result[data-state=pop] #restart-button {
+    width: 446px;
+    background-color: #111F27;
+    border: none;
+    color: #fff;
+    margin-top: 25px;
+}
+
+section.result[data-state=pop] .tutorial-link {
+    width: 659px;
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+    margin-top: 40px;
+}
+
+h2.rock {
+    font-family: 'New Rocker', sans-serif;
+    font-size: 32px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+}
+
+section.result[data-state=rock] .tutorial-link,
+section.result[data-state=rock] #restart-button {
+    display: inline-block;
+    border-radius: 12px;
+    font-family: 'New Rocker', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 55px;
+    text-decoration: none;
+    max-width: 100%;
+    height: 53px;
+}
+
+section.result[data-state=rock] #restart-button {
+    width: 446px;
+    background-color: #111F27;
+    border: none;
+    color: #fff;
+    margin-top: 25px;
+}
+
+section.result[data-state=rock] .tutorial-link {
+    width: 659px;
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+    margin-top: 40px;
+}
+
+/* Portrait */
+
+@media only screen
+and (max-width: 370px) {
+    .input-button .input-pop {
+        font-size: 16px;
+    }
+    .input-button .input-rock {
+        font-size: 15px;
+    }
+    .input-button {
+        padding-top: 7px;
+    }
+}
+
+@media only screen
+and (max-width: 540px) {
+    .content-area {
+        padding: 20px;
+        margin-top: 40px;
+    }
+
+    .input-button .input-pop {
+        font-size: 19px;
+    }
+
+    .input-button .input-rock {
+        font-size: 18px;
+    }
+
+    .input-button {
+        height: 40px;
+        padding-top: 4px;
+    }
+
+    .preloader {
+        top: 3px;
+        width: 18px;
+        height: 18px;
+    }
+
+    label {
+        font-size: 32px;
+    }
+
+    section.result, section.input {
+        margin-top: 30px;
+    }
+
+    section.result .tutorial-link,
+    section.result #restart-button {
+        font-size: 24px !important;
+    }
+
+    section.result img {
+        width: 100%;
+    }
+
+    section.result[data-state=pop] .tutorial-link,
+    section.result[data-state=pop] #restart-button {
+        font-size: 16px !important;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    h2.pop {
+        font-size: 26px;
+    }
+
+}
+
+@media only screen
+and (max-width: 883px) {
+    .only-wide {
+        display: none;
+    }
+}

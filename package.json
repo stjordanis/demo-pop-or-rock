@@ -1,0 +1,25 @@
+{
+  "name": "demo-pop-or-rock",
+  "version": "1.0.0",
+  "description": "Is this pop or rock demo service",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/main.js config/app-config.json",
+    "test": "node_modules/.bin/mocha src/test",
+    "performance-test": "node_modules/.bin/mocha src/test/",
+    "docker-build": "docker build -t pop-or-rock-demo .",
+    "docker-up": "docker run -p 3001:3000 -d --label \"service=demo-pop-or-rock\" --mount type=bind,source=\"$(pwd)\"/config,target=/app/config pop-or-rock-demo:latest",
+    "docker-container": "docker ps -f \"label=service=demo-pop-or-rock\" | tail -n 1 | sed 's/\\([0-9A-Za-z]*\\) .*$/\\1/'"
+  },
+  "author": "Daniel Skantze",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "supertest": "^4.0.2"
+  }
+}

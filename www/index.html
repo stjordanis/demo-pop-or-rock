@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pop or rock?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Monoton|New+Rocker|Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body data-state="input" id="main-view"><!-- input-States | result-States -->
+<div class="main">
+
+    <section class="input" id="input-view">
+        <div class="content-area">
+            <form id="lyrics-form">
+                <label for="lyrics">Enter some lyrics</label><textarea id="lyrics"></textarea>
+                <div class="input-button">
+                    <span class="input-pop">is this pop</span><span class="input-rock">or rock???</span>
+                    <!--img class="preloader" src="images/preloader.gif" /-->
+                    <div class="preloader">
+                        <div class="inner"></div>
+                    </div>
+                    <input id="submit" type="submit" value="Is this pop or rock???"/>
+                </div>
+                <div class="error-message service">It was not possible to complete your request, please try again</div>
+                <div class="error-message validation">Please enter more text</div>
+            </form>
+        </div>
+        <div class="supplemental-area">
+            This application uses a neural network built on <a href="https://peltarion.com" target="_blank">Peltarion's&#xa0;platform</a>. <br class="only-wide" />The model is based  on the BERT architecture, and was trained on thousands of song lyrics.
+        </div>
+    </section>
+
+    <section data-state="rock" class="result" id="result-view">
+        <div class="content-area">
+            <h2 class="pop">This is most definitely pop!</h2>
+            <h2 class="rock">This is not pop at all so it must be rock!</h2>
+            <div class="lyrics-text" id="lyrics-text"></div>
+            <img id="result-image" src="" /><br />
+            <div class="attribution">Powered by GIPHY</div>
+            <a href="#" id="restart-button">Check another song</a>
+        </div>
+        <div class="supplemental-area">
+            <a href="https://peltarion.com/knowledge-center/tutorials/pop-or-rock" class="tutorial-link" target="_blank">Build this model yourself</a>
+        </div>
+    </section>
+
+</div>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
